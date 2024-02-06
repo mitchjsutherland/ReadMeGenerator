@@ -72,11 +72,48 @@ async function getAnswers() {
         console.log(answers)});
     // return answers;
     // console.log(readMeQuestions);
-}
-
-// Function to create user README
-// function createReadMe(readMeQuestions) {
-//     fs.writeFile
-// };
+};
 
 getAnswers();
+
+
+// Function to create user README content 
+
+function createReadMeContent(answers) {
+
+    let fileContent = 
+    
+    <p>`
+        #{answers.project-title}
+
+        ## Description
+        ${answers.description}
+
+        ## Installation
+        ${answers.installation}
+
+        ## Usage
+        ${answers.usage}
+
+        ## Contribution
+        ${answers.contribution}
+
+        ## Tests
+        ${answers.tests}
+
+        ## Questions
+        If you have any questions on the ${answers.project-title}, please contact me at ${answers.questions}`
+    </p>
+
+    return fileContent;
+
+};
+
+
+// Function to create user README file
+
+async function createReadMe(fileContent) {
+    await createReadMeContent;
+    fs.writeFile('ReadMeTesting.md', fileContent)
+
+};
