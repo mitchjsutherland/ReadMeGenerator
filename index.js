@@ -29,6 +29,26 @@ function questionUser() {
             message: "Provide instructions and examples for use. Include screenshots as needed:",
         },
         {
+            type: 'list',
+            name: 'license',
+            message: "Please select a license type for this project:",
+            choices: [
+                'Apache License 2.0', 
+                'GNU General Public License v3.0',
+                'MIT',
+                'BSD 2-Clause "Simplified" License',
+                'BSD 3-Clause "New" or "Revised License',
+                'Boost Software License',
+                'Creative Commons Zero v1.0 Universal',
+                'Eclipse Publish License 2.0',
+                'GNU Affero General Public License v3.0',
+                'GNU General Public License v2.0',
+                'GNU Lesser General Public License v2.1',
+                'Mozilla Public License 2.0',
+                'The Unilicense'
+            ],
+        },
+        {
             type: 'input',
             name: 'contribution',
             message: "List your collaborators, if any, with their GitHub profile URL extension (e.g. for https://github.com/mitchjsutherland, you should enter mitchjsutherland only):",
@@ -36,7 +56,7 @@ function questionUser() {
         {
             type: 'input',
             name: 'tests',
-            message: "Go the extra mile and write tests for your application. Then provide examples on how to run them here:",
+            message: "Here you can provide tests for your application. Then provide examples on how to run them here:",
         },
         {
             type: 'input',
@@ -54,27 +74,37 @@ function questionUser() {
 
 function createReadMeContent(answers) {
 
-    let fileContent = 
+let fileContent = 
 
-    `#${answers.title}
+`# ${answers.title}
 
-    ## Description
-    ${answers.description}
+## Description
+${answers.description}
 
-    ## Installation
-    ${answers.installation}
+## Table of Contents
+[Installation](#installation) <br>
+[Usage](#usage) <br>
+[License](#license) <br>
+[Contributing](#contributing) <br>
+[Tests](#tests) <br>
+[Questions](#questions) <br>
 
-    ## Usage
-    ${answers.usage}
+## Installation
+${answers.installation}
 
-    ## Contribution
-    ${answers.contribution}
+## Usage
+${answers.usage}
 
-    ## Tests
-    ${answers.tests}
+## License
 
-    ## Questions
-    If you have any questions on the ${answers.title}, please contact me at ${answers.questions}`
+## Contributing
+[${answers.contribution}](https://github.com/${answers.contribution})
+
+## Tests
+${answers.tests}
+
+## Questions
+If you have any questions on the ${answers.title}, you can email ${answers.questions} for more information.`
 
     return fileContent;
 
@@ -88,7 +118,7 @@ async function createReadMe() {
     let answers = await questionUser();
     let content = createReadMeContent(answers);
     // console.log(content);
-    await fs.writeFile('ReadMeTesting.md', content, (error) =>
+    await fs.writeFile('ReadMeTesting2.md', content, (error) =>
     error ? console.error(error) : console.log('Success! Your read me has been saved.'))
 };
 
