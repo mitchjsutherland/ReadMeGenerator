@@ -22,10 +22,10 @@ import inquirer from 'inquirer';
 
 function questionUser() {
 
-    const questions = [
+    let questions = [
         {
             type: 'input',
-            name: 'project-title',
+            name: 'title',
             message: "What's your project called?",
         },
         {
@@ -64,56 +64,71 @@ function questionUser() {
 };
 
 
-// Function to get user answers 
-
-async function getAnswers() {
-    await questionUser()
-    .then((answers) => {
-        console.log(answers)});
-    // return answers;
-    // console.log(readMeQuestions);
-};
-
-getAnswers();
 
 
 // Function to create user README content 
 
+
 function createReadMeContent(answers) {
 
     let fileContent = 
-    
-    <p>`
-        #{answers.project-title}
 
-        ## Description
-        ${answers.description}
+    `#${answers.title}
 
-        ## Installation
-        ${answers.installation}
+    ## Description
+    ${answers.description}
 
-        ## Usage
-        ${answers.usage}
+    ## Installation
+    ${answers.installation}
 
-        ## Contribution
-        ${answers.contribution}
+    ## Usage
+    ${answers.usage}
 
-        ## Tests
-        ${answers.tests}
+    ## Contribution
+    ${answers.contribution}
 
-        ## Questions
-        If you have any questions on the ${answers.project-title}, please contact me at ${answers.questions}`
-    </p>
+    ## Tests
+    ${answers.tests}
+
+    ## Questions
+    If you have any questions on the ${answers.title}, please contact me at ${answers.questions}`
 
     return fileContent;
 
 };
 
 
+
 // Function to create user README file
 
 async function createReadMe(fileContent) {
-    await createReadMeContent;
+    await createReadMeContent(answers);
     fs.writeFile('ReadMeTesting.md', fileContent)
-
 };
+
+async function main() {
+    let answers = await questionUser();
+    let fileContent = await createReadMeContent(answers);
+    createReadMe(fileContent);
+}
+
+async function main2() {
+    let answers = await questionUser();
+    let content = await createReadMeContent(answers);
+    console.log(content);
+}
+
+main2();
+
+
+
+// // Function to get user answers 
+
+// async function getAnswers() {
+//     await questionUser()
+//     .then((answers) => {
+//         console.log(answers)});
+//         // return answers});
+//     // return answers;
+// };
+// // getAnswers();
