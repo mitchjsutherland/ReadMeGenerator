@@ -1,21 +1,6 @@
 import fs, { writeFile } from 'fs';
 import inquirer from 'inquirer';
 
-// inquirer
-//   .prompt([
-//     /* Pass your questions in here */
-
-//   ])
-//   .then((answers) => {
-//     // Use user feedback for... whatever!!
-//   })
-//   .catch((error) => {
-//     if (error.isTtyError) {
-//       // Prompt couldn't be rendered in the current environment
-//     } else {
-//       // Something else went wrong
-//     }
-//   });
 
 
 // Function to ask user questions
@@ -65,9 +50,7 @@ function questionUser() {
 
 
 
-
 // Function to create user README content 
-
 
 function createReadMeContent(answers) {
 
@@ -101,34 +84,12 @@ function createReadMeContent(answers) {
 
 // Function to create user README file
 
-async function createReadMe(fileContent) {
-    await createReadMeContent(answers);
-    fs.writeFile('ReadMeTesting.md', fileContent)
+async function createReadMe() {
+    let answers = await questionUser();
+    let content = createReadMeContent(answers);
+    // console.log(content);
+    await fs.writeFile('ReadMeTesting.md', content, (error) =>
+    error ? console.error(error) : console.log('Success! Your read me has been saved.'))
 };
 
-async function main() {
-    let answers = await questionUser();
-    let fileContent = await createReadMeContent(answers);
-    createReadMe(fileContent);
-}
-
-async function main2() {
-    let answers = await questionUser();
-    let content = await createReadMeContent(answers);
-    console.log(content);
-}
-
-main2();
-
-
-
-// // Function to get user answers 
-
-// async function getAnswers() {
-//     await questionUser()
-//     .then((answers) => {
-//         console.log(answers)});
-//         // return answers});
-//     // return answers;
-// };
-// // getAnswers();
+createReadMe();
