@@ -248,7 +248,7 @@ async function createReadMe() {
     let answers = await questionUser();
     let content = createReadMeContent(answers);
     // console.log(content);
-    await fs.writeFile('ReadMeTesting4.md', content, (error) =>
+    await fs.writeFile('SampleREADME.md', content, (error) =>
     error ? console.error(error) : console.log('Success! Your read me has been saved.'))
 };
 
