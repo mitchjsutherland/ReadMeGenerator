@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs, { writeFile } from 'fs';
 import inquirer from 'inquirer';
 
 // inquirer
@@ -58,4 +58,19 @@ const readMeQuestions = [
     },
 ];
 
-inquirer.prompt(readMeQuestions);
+// Function to prompt user questions
+// inquirer.prompt(readMeQuestions);
+
+
+async function questionUser() {
+    await inquirer.prompt(readMeQuestions);
+    // return answers;
+    console.log(readMeQuestions);
+}
+
+// Function to create user README
+// function createReadMe(readMeQuestions) {
+//     fs.writeFile
+// };
+
+questionUser();
