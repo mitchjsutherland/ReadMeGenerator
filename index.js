@@ -18,54 +18,60 @@ import inquirer from 'inquirer';
 //   });
 
 
-// List of questions to be answered by user in required format for inquirer
+// Function to ask user questions
 
-const readMeQuestions = [
-    {
-        type: 'input',
-        name: 'project-title',
-        message: "What's your project called?",
-    },
-    {
-        type: 'input',
-        name: 'description',
-        message: "Please provide a description of the project:",
-    },
-    {
-        type: 'input',
-        name: 'installation',
-        message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running:",
-    },
-    {
-        type: 'input',
-        name: 'usage',
-        message: "Provide instructions and examples for use. Include screenshots as needed:",
-    },
-    {
-        type: 'input',
-        name: 'contribution',
-        message: "List your collaborators, if any, with their GitHub profile URL extension (e.g. for https://github.com/mitchjsutherland, you should enter mitchjsutherland only):",
-    },
-    {
-        type: 'input',
-        name: 'tests',
-        message: "Go the extra mile and write tests for your application. Then provide examples on how to run them here:",
-    },
-    {
-        type: 'input',
-        name: 'questions',
-        message: "What email address can you be contacted on if a user has questions about your application?",
-    },
-];
+function questionUser() {
 
-// Function to prompt user questions
-// inquirer.prompt(readMeQuestions);
+    const questions = [
+        {
+            type: 'input',
+            name: 'project-title',
+            message: "What's your project called?",
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: "Please provide a description of the project:",
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running:",
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: "Provide instructions and examples for use. Include screenshots as needed:",
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: "List your collaborators, if any, with their GitHub profile URL extension (e.g. for https://github.com/mitchjsutherland, you should enter mitchjsutherland only):",
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: "Go the extra mile and write tests for your application. Then provide examples on how to run them here:",
+        },
+        {
+            type: 'input',
+            name: 'questions',
+            message: "What email address can you be contacted on if a user has questions about your application?",
+        },
+    ];
+
+    return inquirer.prompt(questions);
+};
 
 
-async function questionUser() {
-    await inquirer.prompt(readMeQuestions);
+// Function to get user answers 
+
+async function getAnswers() {
+    await questionUser()
+    .then((answers) => {
+        console.log(answers)});
     // return answers;
-    console.log(readMeQuestions);
+    // console.log(readMeQuestions);
 }
 
 // Function to create user README
@@ -73,4 +79,4 @@ async function questionUser() {
 //     fs.writeFile
 // };
 
-questionUser();
+getAnswers();
