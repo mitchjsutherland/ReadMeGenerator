@@ -19,9 +19,7 @@ It doesn't take much you'll be glad to know... simply open the terminal and type
 ## Usage
 Hopefully this video serves as a demonstration! If it works...
 
-[![Watch the video](https://img.youtube.com/vi/yXJITwfmRFU/hqdefault.jpg)](https://www.youtube.com/embed/yXJITwfmRFU)
-
-
+[<img src="READMEGen.png">](https://www.youtube.com/watch?v=yjGQC8cx_nM&feature=youtu.be)
 
 ## License
 The license for this project is MIT.
