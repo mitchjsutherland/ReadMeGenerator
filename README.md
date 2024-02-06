@@ -19,10 +19,7 @@ It doesn't take much you'll be glad to know... simply open the terminal and type
 ## Usage
 Hopefully this video serves as a demonstration! If it works...
 
-![Watch the video](https://img.youtube.com/vi/yXJITwfmRFU/hqdefault.jpg)(https://www.youtube.com/embed/yXJITwfmRFU)
-
-[<img src="https://img.youtube.com/vi/yXJITwfmRFU/hqdefault.jpg" width="600" height="300"
-/>](https://www.youtube.com/embed/yXJITwfmRFU)
+[![Watch the video](https://img.youtube.com/vi/yXJITwfmRFU/hqdefault.jpg)](https://www.youtube.com/embed/yXJITwfmRFU)
 
 
 
