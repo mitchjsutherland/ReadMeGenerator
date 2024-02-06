@@ -33,19 +33,71 @@ function questionUser() {
             name: 'license',
             message: "Please select a license type for this project:",
             choices: [
-                'Apache License 2.0', 
-                'GNU General Public License v3.0',
-                'MIT',
-                'BSD 2-Clause "Simplified" License',
-                'BSD 3-Clause "New" or "Revised License',
-                'Boost Software License',
-                'Creative Commons Zero v1.0 Universal',
-                'Eclipse Publish License 2.0',
-                'GNU Affero General Public License v3.0',
-                'GNU General Public License v2.0',
-                'GNU Lesser General Public License v2.1',
-                'Mozilla Public License 2.0',
-                'The Unilicense'
+                {
+                    name: 'Apache License 2.0', 
+                    value: 'Apache License 2.0',
+                    // short:
+                },
+                {
+                    name:  'GNU General Public License v3.0',
+                    value: 'GNU General Public License v3.0',
+                    // short:
+                },
+                {
+                    name: 'MIT',
+                    value: 'MIT',
+                    // short:
+                },
+                {
+                    name: 'BSD 2-Clause "Simplified" License',
+                    value: 'BSD 2-Clause "Simplified" License',
+                    // short:
+                },
+                {
+                    name: 'BSD 3-Clause "New" or "Revised License',
+                    value: 'BSD 3-Clause "New" or "Revised License',
+                    // short:
+                },
+                {
+                    name: 'Boost Software License',
+                    value: 'Boost Software License',
+                    // short:
+                },
+                {
+                    name: 'Creative Commons Zero v1.0 Universal',
+                    value: 'Creative Commons Zero v1.0 Universal',
+                    // short:
+                },
+                {
+                    name: 'Eclipse Publish License 2.0',
+                    value: 'Eclipse Publish License 2.0',
+                    // short:
+                },
+                {
+                    name: 'GNU Affero General Public License v3.0',
+                    value: 'GNU Affero General Public License v3.0',
+                    // short:
+                },
+                {
+                    name: 'GNU General Public License v2.0',
+                    value: 'GNU General Public License v2.0',
+                    // short:
+                },
+                {
+                    name: 'GNU Lesser General Public License v2.1',
+                    value: 'GNU Lesser General Public License v2.1',
+                    // short: 
+                },
+                {
+                    name: 'Mozilla Public License 2.0',
+                    value: 'Mozilla Public License 2.0',
+                    // short:
+                },
+                {
+                    name: 'The Unilicense',
+                    value: 'The Unilicense'
+                    // short:
+                },
             ],
         },
         {
@@ -96,6 +148,7 @@ ${answers.installation}
 ${answers.usage}
 
 ## License
+The license for this project is ${answers.license}.
 
 ## Contributing
 [${answers.contribution}](https://github.com/${answers.contribution})
@@ -118,7 +171,7 @@ async function createReadMe() {
     let answers = await questionUser();
     let content = createReadMeContent(answers);
     // console.log(content);
-    await fs.writeFile('ReadMeTesting2.md', content, (error) =>
+    await fs.writeFile('ReadMeTesting3.md', content, (error) =>
     error ? console.error(error) : console.log('Success! Your read me has been saved.'))
 };
 
